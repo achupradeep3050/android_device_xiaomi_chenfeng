@@ -186,6 +186,12 @@ TARGET_PRODUCT_PROP += $(DEVICE_PATH)/props/product.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/props/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/props/vendor.prop
 
+# GMS/personal variant: Play Integrity spoof props (Pixel 10 Pro + verifiedbootstate=green).
+# Activates the dormant PropImitationHooks. NOT for the official submission.
+ifeq ($(WITH_GAPPS),true)
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/props/pihooks.prop
+endif
+
 # Recovery
 $(call soong_config_set, ufsbsg, ufsframework, bsg)
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true

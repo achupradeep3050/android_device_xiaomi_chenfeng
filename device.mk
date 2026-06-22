@@ -501,3 +501,11 @@ PRODUCT_COPY_FILES += \
 
 # Vendor
 $(call inherit-product, vendor/xiaomi/chenfeng/chenfeng-vendor.mk)
+
+# GMS / personal variant only (WITH_GAPPS=true): GApps inherit.
+# Play Integrity spoof props are in pihooks.prop via TARGET_SYSTEM_PROP
+# (gated in BoardConfig.mk) since the MODEL value contains spaces.
+# NOT for the official LineageOS submission.
+ifeq ($(WITH_GAPPS),true)
+$(call inherit-product-if-exists, vendor/gapps/gapps.mk)
+endif

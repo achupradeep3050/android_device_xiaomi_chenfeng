@@ -1,0 +1,4 @@
+persist.sys.pihooks_FINGERPRINT=google/blazer_beta/blazer:17/CP21.260306.017/15063635:user/release-keys
+persist.sys.pihooks_MODEL=Pixel 10 Pro
+persist.sys.pp.gms=true
+ro.appcompat_override.ro.boot.verifiedbootstate=green
