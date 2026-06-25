@@ -1,4 +1,11 @@
-persist.sys.pihooks_FINGERPRINT=google/blazer_beta/blazer:17/CP21.260306.017/15063635:user/release-keys
-persist.sys.pihooks_MODEL=Pixel 10 Pro
+# Pixel 9 Pro XL fingerprint taken from the working EvolutionX-16 chenfeng build (newer/certified
+# build than the previous blazer one, which Google had likely stopped certifying -> only BASIC).
+# Update this periodically as Google rotates certified builds (DEVICE integrity is a moving target).
+persist.sys.pihooks_FINGERPRINT=google/komodo_beta/komodo:17/CP21.260330.008/15199860:user/release-keys
+persist.sys.pihooks_MODEL=Pixel 9 Pro XL
+persist.sys.pihooks_BRAND=google
+persist.sys.pihooks_MANUFACTURER=Google
+persist.sys.pihooks_DEVICE=komodo
+persist.sys.pihooks_PRODUCT=komodo_beta
 persist.sys.pp.gms=true
 ro.appcompat_override.ro.boot.verifiedbootstate=green

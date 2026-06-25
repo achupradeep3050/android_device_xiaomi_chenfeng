@@ -476,13 +476,19 @@
     <!-- Doze: should the TYPE_PICK_UP_GESTURE sensor be used as a pulse signal. -->
     <bool name="config_dozePulsePickup">true</bool>
 
-    <!-- Type of the double tap sensor. Empty if double tap is not supported. -->
+    <!-- Type of the double tap sensor. Empty if double tap is not supported.
+         NATIVE Xiaomi DSP double-tap wakeup sensor (xiaomi.sensor.dbtap): detected in low-power on the
+         sensor DSP, needs NO sysfs node. The LineageOS virtual org.lineageos.sensor.double_tap used
+         before writes /sys/class/touch/touch_dev/gesture_double_tap_enabled, which the stock prebuilt
+         xiaomi_touch.ko does NOT create -> it silently failed. -->
     <string name="config_dozeDoubleTapSensorType" translatable="false">org.lineageos.sensor.double_tap</string>
 
     <!-- Type of the tap sensor. Empty if tap is not supported. -->
     <string name="config_dozeTapSensorType" translatable="false">org.lineageos.sensor.single_tap</string>
 
-    <!-- Type of the udfps long press sensor. Empty if long press is not supported. -->
+    <!-- Type of the udfps long press sensor. Empty if long press is not supported.
+         NATIVE Xiaomi FOD wakeup sensor (xiaomi.sensor.fod_detector) instead of the LineageOS virtual
+         org.lineageos.sensor.udfps (whose fod_longpress_gesture_enabled sysfs node does not exist). -->
     <string name="config_dozeUdfpsLongPressSensorType" translatable="false">org.lineageos.sensor.udfps</string>
 
     <!-- Control whether the always on display mode is available. This should only be enabled on
