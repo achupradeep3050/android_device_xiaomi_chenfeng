@@ -3,3 +3,15 @@ audio.offload.min.duration.secs=30
 
 # Media
 media.stagefright.audio.deep=true
+
+# Gaming / frame rate
+# AOSP (base_system.mk) ships ro.surface_flinger.game_default_frame_rate_override=60, which
+# caps games to 60fps via the platform "game default frame rate" throttle regardless of the
+# 120Hz panel. Disabling the throttle lets games request their own rate, so the in-game 60 /
+# 90 / 120 fps tiers (BGMI, PUBG, CoD) all work on this LTPO panel (peak 120Hz, content-detect
+# refresh). The panel exposes 60/90/120 modes so each tier maps to the matching refresh rate.
+debug.graphics.game_default_frame_rate.disabled=true
+
+# Force 4x MSAA in OpenGL ES 2.0 apps, on by default + persistent across reboot, independent of
+# Developer Options (read fresh each boot at egl_platform_entries.cpp). Note: 4x MSAA adds GPU cost.
+debug.egl.force_msaa=true
