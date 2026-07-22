@@ -40,6 +40,10 @@ PRODUCT_PACKAGES += \
     checkpoint_gc \
     otapreopt_script
 
+# Battery: boot service that auto-restricts the optional unlimited-Photos add-on apps
+PRODUCT_PACKAGES += \
+    chenfeng-battopt.sh
+
 # API
 BOARD_SHIPPING_API_LEVEL := 34
 PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
@@ -509,3 +513,9 @@ $(call inherit-product, vendor/xiaomi/chenfeng/chenfeng-vendor.mk)
 ifeq ($(WITH_GAPPS),true)
 $(call inherit-product-if-exists, vendor/gapps/gapps.mk)
 endif
+
+# Kaorios-Toolbox — priv-app (built via kaorios/Android.mk BUILD_PREBUILT) +
+# privapp-permissions. Framework hooks are baked into framework.jar/services.jar.
+PRODUCT_PACKAGES += KaoriosToolbox
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/kaorios/permissions/com.kousei.kaorios.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.kousei.kaorios.xml

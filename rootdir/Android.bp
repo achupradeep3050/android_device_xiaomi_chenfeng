@@ -64,6 +64,12 @@ sh_binary {
     vendor: true,
 }
 
+sh_binary {
+    name: "chenfeng-battopt.sh",
+    src: "bin/chenfeng-battopt.sh",
+    init_rc: ["etc/init.chenfeng-battopt.rc"],
+}
+
 prebuilt_etc {
     name: "charger_fw_fstab.qti",
     src: "etc/charger_fw_fstab.qti",

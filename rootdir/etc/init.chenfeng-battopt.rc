@@ -1,0 +1,10 @@
+service chenfeng-battopt /system/bin/chenfeng-battopt.sh
+    class late_start
+    user shell
+    group shell
+    seclabel u:r:shell:s0
+    oneshot
+    disabled
+
+on property:sys.boot_completed=1
+    start chenfeng-battopt
